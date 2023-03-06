@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    width: 100%;
+    height: 100vh;
+}
+
+i,
+svg {
+    pointer-events: none;
+}
+.kick-pad, .snare-pad, .hihat-pad {
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem 0.5rem;
+    cursor: pointer;
+}
+.kick-pad {
+    background-color: rgb(48, 48, 141);
+}
+
+.snare-pad{
+    background-color: tomato;
+}
+
+.hihat-pad{
+    background-color: blueviolet;
+}
+
+
+
+.kick-pad.active {
+    background-color: rgb(66, 66, 92);
+}
+
+.snare-pad.active{
+    background-color: rgb(138, 111, 106);
+}
+
+.hihat-pad.active{
+    background-color: rgb(108, 88, 128);
+}
+.hihat-track, .snare-track, .kick-track {
+     display: flex;
+    align-items: center;
+    width: 70%;
+    justify-content: space-between;
+    flex-direction: row; 
+    margin-top: 5rem;
+    
+}
+
+.kick, .snare, .hihat {
+    display: flex;
+}
+.mute.active {
+    background-color: rgb(70, 69, 69);
+}
+.sequencer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    margin: 0rem 2rem;
+}
+
+.controls button {
+    padding: 1rem;
+    border: none;
+    background-color: rgb(131, 121, 121);
+    color: white;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.pad{
+    transition: all 0.5s ease;
+}
+.play{
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background-color: rgb(131, 121, 121);
+    border: none;
+    color: white;
+    border-radius: 10%;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+select{
+    padding: 1rem;
+    font-size: 1rem;
+    
+}
+.tempo{
+    margin: 3rem;
+    width: 30%;
+
+}
+.tempo p {
+    font-size: 1.5rem;
+    margin: 2rem;
+    text-align: center;
+}
+
+.tempo-slider{
+    padding: 0.2rem;
+    -webkit-appearance: none;
+    margin: 1rem 0rem;
+    width: 100%;
+    position: relative;
+    background-color: rgb(112, 121, 121);
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+@keyframes playTrack{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.2);
+    }
+}

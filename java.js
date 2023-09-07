@@ -7,7 +7,7 @@ class DrumKit{
         this.currentHithat = './muza/hihat-acoustic01.wav';
         this.kickAudio = document.querySelector(".kick-sound");
         this.snareAudio = document.querySelector(".snare-sound");
-        this.hihatAudio = document.querySelector(".hihat-sound")
+        this.hihatAudio = document.querySelector(".hithat-sound")
         this.index = 0;
         this.bpm = 150;
         this.isPlaying = null;
@@ -58,7 +58,7 @@ if(!this.isPlaying) {
 
     }
     upadateBtn() {
-        if (!this.isPlaying) {
+        if (this.isPlaying) {
             this.playBtn.innerText = "Stop"
             this.playBtn.classList.add("adtive");
         }else{
@@ -90,36 +90,37 @@ if(!this.isPlaying) {
                 case "0":
                     this.kickAudio.volume = 0;
                     break;
-                    case "0":
-                    this.snareAudio.volume = 0;
-                    break;
-                    case "0":
-                    this.hihatAudio.volume = 0;
-                    break;
-            }
-         }else{
-            switch(muteIndex){
-                case "0":
-                    this.kickAudio.volume = 0;
-                    break;
                     case "1":
                     this.snareAudio.volume = 0;
                     break;
                     case "2":
                     this.hihatAudio.volume = 0;
                     break;
+            }
+         }else{
+            switch(muteIndex){
+                case "0":
+                    this.kickAudio.volume = 1;
+                    break;
+                    case "1":
+                    this.snareAudio.volume = 1;
+                    break;
+                    case "2":
+                    this.hihatAudio.volume = 1;
+                    break;
 
             }
          }
     }
-    changeTempo(){
+    
+    changeTempo(e){
         const tempoText = document.querySelector(".tempo-nr") 
         this.bpm = e.target.value;
         tempoText.innerText = e.target.value;
        
     }
-        updateTempo(){
-            clearInterval(this.isPlaying);
+        upadateTempo(){
+            clearInterval(!this.isPlaying);
             this.isPlaying = null;
             const playBtn = document.querySelector('.play')
             if (playBtn.classList.contains('active')) {
@@ -159,5 +160,5 @@ drumKit.playBtn.addEventListener("click", function() {
     drumKit.changeTempo(e);
  })
 drumKit.tempoSlider.addEventListener('change', function(e){
-    drumKit.upadateTempo(e);
+    drumKit.upadateTempo();
 })
